@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Multilingual AI Chatbot Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+      color: #333;
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: 30px;
+    }
+    iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .cta {
+      margin-top: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title"></h1>
+  <p id="subtitle"></p>
+  <iframe id="video" allowfullscreen></iframe>
+  <p class="cta" id="cta"></p>
+
+  <script>
+    const language = navigator.language.slice(0, 2);
+    const videoMap = {
+      it: 'https://www.youtube.com/embed/wec5sVZKuEg',
+      en: 'https://www.youtube.com/embed/eYSNqiG_wl8',
+      fr: 'https://www.youtube.com/embed/oMY1I3eUNV0',
+      es: 'https://www.youtube.com/embed/VB_5K188Sn4',
+      de: 'https://www.youtube.com/embed/jxXpx-AZaMs',
+      zh: 'https://www.youtube.com/embed/2yhz84OKC1Y'
+    };
+
+    const translations = {
+      it: {
+        title: "Demo Chatbot AI Multilingua",
+        subtitle: "Guarda il video nella tua lingua per scoprire come funziona la nostra chatbot AI.",
+        cta: "👉 Contattaci per provare la chatbot in ambiente riservato."
+      },
+      en: {
+        title: "Multilingual AI Chatbot Demo",
+        subtitle: "Watch the video in your language to see how our AI chatbot works.",
+        cta: "👉 Contact us to test the chatbot in a private environment."
+      },
+      fr: {
+        title: "Démo Chatbot IA Multilingue",
+        subtitle: "Regardez la vidéo dans votre langue pour découvrir notre chatbot IA.",
+        cta: "👉 Contactez-nous pour tester le chatbot dans un environnement privé."
+      },
+      es: {
+        title: "Demostración Chatbot IA Multilingüe",
+        subtitle: "Mira el video en tu idioma para ver cómo funciona nuestro chatbot con IA.",
+        cta: "👉 Contáctanos para probar el chatbot en un entorno privado."
+      },
+      de: {
+        title: "Multilinguale KI-Chatbot-Demo",
+        subtitle: "Sehen Sie sich das Video in Ihrer Sprache an, um unseren KI-Chatbot kennenzulernen.",
+        cta: "👉 Kontaktieren Sie uns, um den Chatbot in einer geschützten Umgebung zu testen."
+      },
+      zh: {
+        title: "多语言 AI 聊天机器人演示",
+        subtitle: "观看您的语言版本视频，了解我们的 AI 聊天机器人如何工作。",
+        cta: "👉 如需在私密环境中测试聊天机器人，请联系我们。"
+      }
+    };
+
+    const lang = translations[language] ? language : 'en';
+
+    document.getElementById('video').src = videoMap[lang];
+    document.getElementById('title').innerText = translations[lang].title;
+    document.getElementById('subtitle').innerText = translations[lang].subtitle;
+    document.getElementById('cta').innerText = translations[lang].cta;
+  </script>
+</body>
+</html>
